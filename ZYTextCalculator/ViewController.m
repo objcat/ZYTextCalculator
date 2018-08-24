@@ -24,19 +24,27 @@
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 20)];
     [self.view addSubview:scrollView];
     scrollView.alwaysBounceVertical = YES;
-    scrollView.backgroundColor = [UIColor redColor];
+    scrollView.backgroundColor = [UIColor lightGrayColor];
+    
+    
+    UIFont *font = [UIFont systemFontOfSize:16];
     
     //创建label
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.height)];
     [scrollView addSubview:label];
-    label.font = [UIFont systemFontOfSize:16];
+    label.font = font;
+    
     label.backgroundColor = [UIColor cyanColor];
     label.numberOfLines = 0;
     
+    CGFloat lineSpacing = 10;
+    
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     //设置行间距
-    paragraphStyle.lineSpacing = 10;
+    paragraphStyle.lineSpacing = lineSpacing;
     label.attributedText = [[NSAttributedString alloc] initWithString:TEXT attributes:@{NSParagraphStyleAttributeName: paragraphStyle}];
+    
+    label.lineBreakMode = NSLineBreakByTruncatingTail;
     
     
     /**  
@@ -56,7 +64,11 @@
     /** 第一种方法 ZYTextCalculator */
     
     // 根据文字的宽度和字数 - 计算文字的高度
-    CGSize size = [ZYTextCalculator sizeWithText:TEXT font:[UIFont systemFontOfSize:16] lineSpacing:10 maxSize:CGSizeMake(scrollView.frame.size.width, MAXFLOAT) numberOfLine:0];
+    CGSize size = [ZYTextCalculator sizeWithText:TEXT font:font lineSpacing:lineSpacing maxSize:CGSizeMake(scrollView.frame.size.width, MAXFLOAT) numberOfLine:0];
+    
+    /**
+     * 可以尝试把上面的numberOfLine改成5来确认计算的精确性
+     */
     
     // 计算之后赋值于label和scrollView
     CGRect labelFrame = label.frame;
