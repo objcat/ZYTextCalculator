@@ -9,7 +9,7 @@
 #import "ZYTextCalculator.h"
 
 @interface ZYTextCalculator ()
-@property (class) UILabel *label;
+@property (class, readonly) UILabel *label;
 @end
 
 typedef NS_ENUM(NSUInteger, ZYTextCalculateType) {
