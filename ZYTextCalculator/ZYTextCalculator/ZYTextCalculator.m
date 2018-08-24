@@ -3,10 +3,14 @@
 //  MongolianReadProject
 //
 //  Created by 张祎 on 2017/8/24.
-//  Copyright © 2017年 张祎. All rights reserved.
+//  Copyright © 2017年 objcat. All rights reserved.
 //
 
 #import "ZYTextCalculator.h"
+
+@interface ZYTextCalculator ()
+@property (class) UILabel *label;
+@end
 
 typedef NS_ENUM(NSUInteger, ZYTextCalculateType) {
     ZYTextCalculateWidth,
@@ -15,32 +19,37 @@ typedef NS_ENUM(NSUInteger, ZYTextCalculateType) {
 
 @implementation ZYTextCalculator
 
-+ (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font lineSpacing:(CGFloat)lineSpacing maxSize:(CGSize)maxSize {
-    ZYTextCalculator *calculator = [[ZYTextCalculator alloc] init];
-    return [calculator sizeWithText:text font:font lineSpacing:lineSpacing maxSize:maxSize];
++ (UILabel *)label {
+    static UILabel *label = nil;
+    if (!label) {
+        label = [[UILabel alloc] init];
+    }
+    return label;
 }
 
-- (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font lineSpacing:(CGFloat)lineSpacing maxSize:(CGSize)maxSize {
++ (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font lineSpacing:(CGFloat)lineSpacing maxSize:(CGSize)maxSize numberOfLine:(NSInteger)numberOfLine {
+    
+    if (!lineSpacing) {
+        lineSpacing = 0;
+    }
+    
     NSAttributedString *attributedString;
     
     if (lineSpacing) {
         NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
         paragraph.lineSpacing = lineSpacing;
-        attributedString = [[NSAttributedString alloc] initWithString:text attributes:@{NSParagraphStyleAttributeName: paragraph}];
+        attributedString = [[NSAttributedString alloc] initWithString:text ? : @"" attributes:@{NSParagraphStyleAttributeName: paragraph, NSFontAttributeName: font}];
     } else {
-        attributedString = [[NSAttributedString alloc] initWithString:text attributes:@{}];
+        attributedString = [[NSAttributedString alloc] initWithString:text ? : @"" attributes:@{NSFontAttributeName: font}];
     }
     
-    return [self sizeWithText:attributedString maxSize:maxSize font:font];
+    return [ZYTextCalculator sizeWithText:attributedString maxSize:maxSize numberOfLine:numberOfLine];
 }
 
-- (CGSize)sizeWithText:(NSAttributedString *)attributedString maxSize:(CGSize)maxSize font:(UIFont *)font {
-        UILabel *label;
-        label = [[UILabel alloc] init];
-        label.attributedText = attributedString;
-        label.font = font;
-        label.numberOfLines = 0;
-        return [label sizeThatFits:maxSize];
++ (CGSize)sizeWithText:(NSAttributedString *)attributedString maxSize:(CGSize)maxSize numberOfLine:(NSInteger)numberOfLine {
+    self.label.attributedText = attributedString;
+    self.label.numberOfLines = numberOfLine;
+    return [self.label sizeThatFits:maxSize];
 }
 
 @end

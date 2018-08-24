@@ -13,7 +13,7 @@
 		2220E12B1F4E702C0000D573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2220E1291F4E702C0000D573 /* Main.storyboard */; };
 		2220E12D1F4E702C0000D573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2220E12C1F4E702C0000D573 /* Assets.xcassets */; };
 		2220E1301F4E702C0000D573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2220E12E1F4E702C0000D573 /* LaunchScreen.storyboard */; };
-		2220E1461F4E8A360000D573 /* ZYTextCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2220E1451F4E8A360000D573 /* ZYTextCalculator.m */; };
+		222534AA212FC03B00C77761 /* ZYTextCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 222534A8212FC03B00C77761 /* ZYTextCalculator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +27,8 @@
 		2220E12C1F4E702C0000D573 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2220E12F1F4E702C0000D573 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2220E1311F4E702C0000D573 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2220E1441F4E8A360000D573 /* ZYTextCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYTextCalculator.h; sourceTree = "<group>"; };
-		2220E1451F4E8A360000D573 /* ZYTextCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYTextCalculator.m; sourceTree = "<group>"; };
+		222534A8212FC03B00C77761 /* ZYTextCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYTextCalculator.m; sourceTree = "<group>"; };
+		222534A9212FC03B00C77761 /* ZYTextCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYTextCalculator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +86,8 @@
 		2220E1431F4E8A360000D573 /* ZYTextCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				2220E1441F4E8A360000D573 /* ZYTextCalculator.h */,
-				2220E1451F4E8A360000D573 /* ZYTextCalculator.m */,
+				222534A9212FC03B00C77761 /* ZYTextCalculator.h */,
+				222534A8212FC03B00C77761 /* ZYTextCalculator.m */,
 			);
 			path = ZYTextCalculator;
 			sourceTree = "<group>";
@@ -167,7 +167,7 @@
 				2220E1281F4E702C0000D573 /* ViewController.m in Sources */,
 				2220E1251F4E702C0000D573 /* AppDelegate.m in Sources */,
 				2220E1221F4E702C0000D573 /* main.m in Sources */,
-				2220E1461F4E8A360000D573 /* ZYTextCalculator.m in Sources */,
+				222534AA212FC03B00C77761 /* ZYTextCalculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +289,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PZXD4J23YL;
 				INFOPLIST_FILE = ZYTextCalculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Apple.ZYTextCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -301,6 +302,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PZXD4J23YL;
 				INFOPLIST_FILE = ZYTextCalculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Apple.ZYTextCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -326,6 +328,7 @@
 				2220E1361F4E702C0000D573 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

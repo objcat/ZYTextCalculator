@@ -55,15 +55,15 @@
 
     /** 第一种方法 ZYTextCalculator */
     
-    CGSize size = [ZYTextCalculator sizeWithText:TEXT font:[UIFont systemFontOfSize:16] lineSpacing:10 maxSize:CGSizeMake(scrollView.frame.size.width, MAXFLOAT)];
+    // 根据文字的宽度和字数 - 计算文字的高度
+    CGSize size = [ZYTextCalculator sizeWithText:TEXT font:[UIFont systemFontOfSize:16] lineSpacing:10 maxSize:CGSizeMake(scrollView.frame.size.width, MAXFLOAT) numberOfLine:0];
+    
+    // 计算之后赋值于label和scrollView
     CGRect labelFrame = label.frame;
     labelFrame.size.height = size.height;
     label.frame = labelFrame;
     scrollView.contentSize = CGSizeMake(0, size.height);
-    
-    
 
-    
     //到这里  可以注释掉 第一种方法  尝试 2 3 方法
     
     //第二种方法 SizeToFit
