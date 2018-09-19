@@ -21,9 +21,10 @@ typedef NS_ENUM(NSUInteger, ZYTextCalculateType) {
 
 + (UILabel *)label {
     static UILabel *label = nil;
-    if (!label) {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         label = [[UILabel alloc] init];
-    }
+    });
     return label;
 }
 
