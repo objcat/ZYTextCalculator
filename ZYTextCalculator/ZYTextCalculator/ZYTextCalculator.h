@@ -11,7 +11,7 @@
 
 @interface ZYTextCalculator : NSObject
 /**
- 计算文字宽度和高度
+ 计算文字size
 
  @param text 文字
  @param font 字体和大小

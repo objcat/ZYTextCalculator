@@ -12,11 +12,6 @@
 @property (class, readonly) UILabel *label;
 @end
 
-typedef NS_ENUM(NSUInteger, ZYTextCalculateType) {
-    ZYTextCalculateWidth,
-    ZYTextCalculateHeight,
-};
-
 @implementation ZYTextCalculator
 
 + (UILabel *)label {
